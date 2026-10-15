@@ -2028,6 +2028,10 @@ class Privileges
             || isset($_POST['max_user_connections'])))
         ) {
             if ($needsToUseAlter) {
+                if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y') {
+                    $grantBackQuery .= ' WITH GRANT OPTION';
+                }
+
                 $alterUserQuery .= $this->getWithClauseForAddUserAndUpdatePrivs();
             } else {
                 $grantBackQuery .= $this->getWithClauseForAddUserAndUpdatePrivs();

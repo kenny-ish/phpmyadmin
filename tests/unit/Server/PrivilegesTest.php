@@ -576,7 +576,7 @@ class PrivilegesTest extends AbstractTestCase
             $message->getMessage(),
         );
         self::assertSame(
-            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\';'
+            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' WITH GRANT OPTION;'
             . ' ALTER USER \'pma_username\'@\'pma_hostname\'  REQUIRE NONE'
             . ' WITH MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR'
             . ' 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40;',
